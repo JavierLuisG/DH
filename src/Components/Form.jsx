@@ -31,7 +31,6 @@ const Form = () => {
   };
 
   /* ========================================================== */
-  //Aqui deberan implementar el form completo con sus validaciones
 
   const handleName = (e) => {
     setUser({ ...user, name: e.target.value });
