@@ -5,16 +5,16 @@ import { ContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const { dentists, loading } = useContext(ContextGlobal);
+  const { loading, state } = useContext(ContextGlobal);
 
   return (
-    <main className="">
+    <main className={state.theme}>
       <h1>Home</h1>
       {loading ? (
         "Cargando..."
       ) : (
         <div className="card-grid">
-          {dentists.map((dentist) => {
+          {state.data.map((dentist) => {
             return (
               <Card
                 key={dentist.id}
