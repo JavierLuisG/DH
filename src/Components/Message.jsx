@@ -1,12 +1,12 @@
 const message = ({ user, verify }) => {
-
   let color = "";
   let bgColor = "";
+
   if (verify == 2) {
-    bgColor = "rgba(93, 209, 39, 0.5)"
-    color ="1px solid green";
+    bgColor = "rgba(93, 209, 39, 0.5)";
+    color = "1px solid green";
   } else {
-    bgColor = "rgba(211, 72, 37, 0.5)"
+    bgColor = "rgba(211, 72, 37, 0.5)";
     color = "1px solid red";
   }
 
@@ -16,7 +16,7 @@ const message = ({ user, verify }) => {
     borderRadius: "10px",
     padding: "10px",
     backgroundColor: bgColor,
-    border: color
+    border: color,
   };
 
   return (
@@ -27,9 +27,7 @@ const message = ({ user, verify }) => {
           <p>Te contactaremos cuanto antes vía email</p>
         </div>
       ) : (
-        <div style={styles}>
-          Por favor! verifique su información nuevamente
-        </div>
+        <div style={styles}>Por favor! verifique su información nuevamente</div>
       )}
     </>
   );

@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 
-export const initialState = { theme: "", data: [] };
+export const initialState = { theme: "", data: [], favs: [] };
 const reducer = (state, action) => {
   switch (action.type) {
     case "dark":
@@ -9,6 +9,8 @@ const reducer = (state, action) => {
       return { ...state, theme: "" };
     case "GET_DATA_DENTISTS":
       return { ...state, data: action.payload };
+    case "SET_FAVS":
+      return { ...state, favs: [...state.favs, action.payload] };
     default:
       throw new Error("Error in style dark or light");
   }
@@ -17,14 +19,13 @@ const reducer = (state, action) => {
 export const ContextGlobal = createContext(undefined);
 
 export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const [state, dispatch] = useReducer(reducer, initialState);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       getData();
-    }, 0);
+    }, 1000);
   }, []);
 
   const getData = () => {
