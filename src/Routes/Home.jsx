@@ -8,7 +8,7 @@ const Home = () => {
   const { loading, state } = useContext(ContextGlobal);
 
   return (
-    <main className={state.theme}>
+    <main className={`home_container ${state.theme}`}>
       <h1>Home</h1>
       {loading ? (
         "Cargando..."
