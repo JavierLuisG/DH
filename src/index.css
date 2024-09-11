@@ -146,7 +146,7 @@ h1 {
   }
 }
 
-/*  =================== favs styles =================== */
+/*  =================== contact and form styles =================== */
 
 .contact_container {
   padding: 100px 20px;
@@ -259,9 +259,5 @@ footer>p {
 
 .dark {
   background-color: #12121296;
-  color: white;
-}
-
-.dark>a {
   color: white;
 }

@@ -1,6 +1,8 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 
-export const initialState = { theme: "", data: [], favs: [] };
+const initialFavs = JSON.parse(localStorage.getItem("favs_dentist")) || [];
+
+export const initialState = { theme: "", data: [], favs: initialFavs };
 const reducer = (state, action) => {
   switch (action.type) {
     case "dark":
@@ -21,6 +23,10 @@ export const ContextGlobal = createContext(undefined);
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    localStorage.setItem("favs_dentist", JSON.stringify(state.favs));
+  }, [state.favs]);
 
   useEffect(() => {
     setTimeout(() => {
