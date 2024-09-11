@@ -6,8 +6,9 @@
   --third-color: rgba(59, 58, 141, 0.267);
   --fourd-color: rgba(13, 26, 68, 0.808);
   --bg-principal: white;
-  --bg-secundary: #dddddd;
+  --bg-secundary: #c0bcbc;
   --bg-dorder: #8b8b8b;
+  --bg-dorder: rgba(211, 72, 37, 0.5);
 }
 
 * {
@@ -68,19 +69,24 @@
   align-items: center;
   border: none;
   border-radius: 5px;
-  background-color: rgb(86, 88, 88);
-  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(200%);
+  background-color: var(--bg-secundary);
+  pointer-events: all;
+
+  &:hover {
+    scale: 1.03;
+    background-color: var(--bg-dorder);
+  }
+}
+
+h1 {
+  padding: 20px;
+  text-align: center;
 }
 
 /*  =================== home styles =================== */
 
 .home_container {
   padding: 20px 0 60px 0;
-
-  h1 {
-    padding: 20px;
-    text-align: center;
-  }
 }
 
 .card-grid {
@@ -103,23 +109,29 @@
   gap: 8px;
   width: 250px;
   padding: 0rem 0rem 0.5rem 0rem;
-  /* padding: 8px; */
   border: 1px solid var(--bg-secundary);
   box-shadow: 0px 3px 10px -5px var(--bg-dorder);
-  border-radius: 0px 0px 8px 8px;
+  border-radius: 8px;
 
   &:hover {
-    box-shadow: 0px 6px 12px -3px var(--secundary-color);
+    box-shadow: 0px 6px 12px 0px var(--bg-dorder);
   }
 
   img {
     width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  &>a>h3:hover {
+    scale: 1.05;
+    color: var(--bg-secundary);
   }
 }
 
 .favButton {
   background-color: var(--primary-color);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   border: none;
   width: 75%;
@@ -138,12 +150,11 @@
 /*  =================== favs styles =================== */
 
 .contact_container {
-  padding: 100px 0;
+  padding: 100px 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 4em;
 }
 
 .form {
@@ -180,13 +191,17 @@
 
 /*  =================== detail styles =================== */
 
+.detail_container {
+  padding: 20px 0px 60px 0px;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  margin: auto;
+  width: 75%;
   display: table;
   border: 1px solid #ccc;
-
 }
 
 td,

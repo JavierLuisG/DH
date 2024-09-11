@@ -3,10 +3,10 @@ const message = ({ user, verify }) => {
   let color = "";
   let bgColor = "";
   if (verify == 2) {
-    bgColor = "rgba(84, 141, 58, 0.500)"
+    bgColor = "rgba(93, 209, 39, 0.5)"
     color ="1px solid green";
   } else {
-    bgColor = "rgba(141, 75, 58, 0.500)"
+    bgColor = "rgba(211, 72, 37, 0.5)"
     color = "1px solid red";
   }
 

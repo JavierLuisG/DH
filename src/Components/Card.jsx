@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ContextGlobal } from "./utils/global.context";
+import { ContextGlobal } from "../Context/global.context";
 
 const Card = ({ name, username, id }) => {
   const addFav = () => {

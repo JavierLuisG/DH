@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import Message from "./Message";
-import { ContextGlobal } from "./utils/global.context";
+import { ContextGlobal } from "../Context/global.context";
 
 const Form = () => {
   let infoUser = {
