@@ -4,6 +4,7 @@ import { ContextGlobal } from "../Context/global.context";
 
 const Contact = () => {
   const { state } = useContext(ContextGlobal);
+  
   return (
     <div className={`${state.theme} contact_container`}>
       <div className={`text_contact`}>

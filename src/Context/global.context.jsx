@@ -2,7 +2,12 @@ import { createContext, useEffect, useReducer, useState } from "react";
 
 const initialFavs = JSON.parse(localStorage.getItem("favs_dentist")) || [];
 
-export const initialState = { theme: "", data: [], favs: initialFavs };
+export const initialState = {
+  theme: "",
+  data: [],
+  favs: initialFavs,
+  stateCard: "home",
+};
 const reducer = (state, action) => {
   switch (action.type) {
     case "dark":
@@ -13,6 +18,10 @@ const reducer = (state, action) => {
       return { ...state, data: action.payload };
     case "SET_FAVS":
       return { ...state, favs: [...state.favs, action.payload] };
+    case "MODIFY_FAVS":
+      return { ...state, favs: action.payload };
+    case "STATE_CARD":
+      return { ...state, stateCard: action.payload };
     default:
       throw new Error("Error in style dark or light");
   }
@@ -31,7 +40,7 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     setTimeout(() => {
       getData();
-    }, 1000);
+    }, 2000);
   }, []);
 
   const getData = () => {

@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import Card from "../Components/Card";
 import { ContextGlobal } from "../Context/global.context";
+import { useEffect } from "react";
 
 const Favs = () => {
-  const { state } = useContext(ContextGlobal);
+  const { state, dispatch } = useContext(ContextGlobal);
+
+  useEffect(() => {
+    dispatch({ type: "STATE_CARD", payload: "favs" });
+  }, [state.stateCard]);
 
   return (
     <div className={`home_container ${state.theme}`}>

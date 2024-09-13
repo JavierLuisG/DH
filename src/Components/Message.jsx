@@ -12,22 +12,23 @@ const message = ({ user, verify }) => {
 
   const styles = {
     textAlign: "center",
-    margin: "15px 0",
+    margin: "15px auto",
     borderRadius: "10px",
     padding: "10px",
     backgroundColor: bgColor,
     border: color,
+    width: "85%",
   };
 
   return (
     <>
       {verify == 2 ? (
-        <div style={styles}>
+        <div className="message" style={styles}>
           <h4>Gracias {user.name}!</h4>
           <p>Te contactaremos cuanto antes vía email</p>
         </div>
       ) : (
-        <div style={styles}>Por favor! verifique su información nuevamente</div>
+        <p style={styles}>Por favor! verifique su información nuevamente</p>
       )}
     </>
   );

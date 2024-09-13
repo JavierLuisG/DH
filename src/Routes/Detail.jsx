@@ -7,15 +7,12 @@ const Detail = () => {
   const { state } = useContext(ContextGlobal);
   const params = useParams();
 
-  const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
-
   useEffect(() => {
-    setTimeout(() => {
-      getData();
-    }, 1000);
+    getData();
   }, []);
-
+  
   const getData = () => {
+    const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
     fetch(url)
       .then((response) => {
         return response.json();
@@ -36,14 +33,22 @@ const Detail = () => {
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th>Website</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{dentist.name}</td>
             <td>{dentist.email}</td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>Phone</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
             <td>{dentist.phone}</td>
             <td>{dentist.website}</td>
           </tr>
