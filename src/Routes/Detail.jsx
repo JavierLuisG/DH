@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ContextGlobal } from "../Context/global.context";
+import { dentistsServices } from "../services/dentist";
 
 const Detail = () => {
   const [dentist, setDentist] = useState({});
@@ -8,22 +9,8 @@ const Detail = () => {
   const params = useParams();
 
   useEffect(() => {
-    getData();
+    dentistsServices.getOneDentist(params.id, setDentist);
   }, []);
-  
-  const getData = () => {
-    const url = `https://jsonplaceholder.typicode.com/users/${params.id}`;
-    fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((info) => {
-        setDentist(info);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   return (
     <div className={`${state.theme} detail_container`}>

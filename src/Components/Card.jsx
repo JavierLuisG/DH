@@ -19,7 +19,7 @@ const Card = ({ dentist }) => {
     let icon = "";
     let title = "";
     if (!encontrado) {
-      addFav();
+      addItemFav();
       icon = "success";
       title = "Dentist has been added!";
     } else {
@@ -54,9 +54,7 @@ const Card = ({ dentist }) => {
       confirmButtonText: "Remove!",
     }).then((result) => {
       if (result.isConfirmed) {
-        let getLS = state.favs;
-        let listo = getLS.filter((remove) => remove.id !== dentist.id);
-        dispatch({ type: "MODIFY_FAVS", payload: listo });
+        removeItemFav();
         Swal.fire({
           title: "Remove!",
           text: "Dentist has been removed.",
@@ -66,8 +64,14 @@ const Card = ({ dentist }) => {
     });
   };
 
-  const addFav = () => {
+  const addItemFav = () => {
     dispatch({ type: "SET_FAVS", payload: dentist });
+  };
+
+  const removeItemFav = () => {
+    let getLS = state.favs;
+    let listo = getLS.filter((remove) => remove.id !== dentist.id);
+    dispatch({ type: "REMOVE_FAVS", payload: listo });
   };
 
   return (

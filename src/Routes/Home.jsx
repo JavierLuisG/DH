@@ -4,7 +4,7 @@ import { ContextGlobal } from "../Context/global.context";
 import { useEffect } from "react";
 
 const Home = () => {
-  const { loading, state, dispatch } = useContext(ContextGlobal);
+  const { state, dispatch } = useContext(ContextGlobal);
 
   useEffect(() => {
     dispatch({ type: "STATE_CARD", payload: "home" });
@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <main className={`home_container ${state.theme}`}>
       <h1>Home</h1>
-      {loading ? (
+      {state.loadingHome ? (
         <h2 style={{textAlign: "center"}}>Cargando...</h2>
       ) : (
         <div className="card-grid">
