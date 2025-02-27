@@ -6,15 +6,15 @@ import { useState } from "react";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(ContextGlobal);
-  const [img, setImg] = useState("../../public/images/DH.png");
+  const [img, setImg] = useState("/images/DH.png");
 
   const validateTheme = () => {
     if (state.theme == "dark") {
       dispatch({ type: "light" });
-      setImg("../../public/images/DH.png");
+      setImg("/public/images/DH.png");
     } else {
       dispatch({ type: "dark" });
-      setImg("../../public/images/DHdark.png")
+      setImg("/images/DHdark.png")
     }
   };
 
@@ -42,7 +42,7 @@ const Navbar = () => {
           onClick={() => validateTheme()}
         >
           <img
-            src=".:/../../../public/images/dom.png"
+            src="/images/dom.png"
             alt="icon sun"
             width={20}
           />
